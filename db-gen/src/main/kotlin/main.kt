@@ -4,7 +4,7 @@ import java.io.File
 import javax.xml.stream.XMLResolver
 
 fun main() {
-    var file = File("C:\\Users\\patrick\\projects\\jdict\\JMdict_e")
+    var file = File("..\\jmdict")
     var mapper = XmlMapper()
     mapper.getFactory().getXMLInputFactory().setProperty(
         WstxInputProperties.P_UNDECLARED_ENTITY_RESOLVER,
@@ -17,5 +17,7 @@ fun main() {
         }
     )
     var jmdict: JMdict = mapper.readValue(file, JMdict::class.java)
+    println(jmdict.entry[0].r_ele[0].reb)
+    println(jmdict.entry[0].sense[0].gloss)
     println("done")
 }
